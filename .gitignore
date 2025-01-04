@@ -154,3 +154,7 @@ cython_debug/
 # vscode-plugins-configurations
 .vscode
 
+**/migrations/*.py
+**/migrations/*.pyc
+_migrations/*
+!_migrations/__init__.py
