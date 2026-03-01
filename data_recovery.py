@@ -1,3 +1,5 @@
+# https://quera.org/problemset/220659
+# -----------------------------------
 HEADER_MAPPER = {
     b"\x89PNG\r\n\x1a\n": "PNG",
     b"\xff\xd8\xff": "JPEG",

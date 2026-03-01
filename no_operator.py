@@ -9,7 +9,7 @@
 #     tmp = a + b
 #     if c == 1:
 #         print(tmp + c)
-#     else: 
+#     else:
 #         print(tmp * c)
 # elif b == 1:
 #     if a > c:
@@ -32,27 +32,27 @@ for i in range(len(nums)):
         skip_next = False
         skip_previous = True
         continue
-    
+
     if nums[i] == 1:
         try:
-            next_num = nums[i+1]
+            next_num = nums[i + 1]
             if i - 1 > -1:
-                previous_num = nums[i-1]
+                previous_num = nums[i - 1]
             else:
-                helper = nums[i] + nums[i+1]
+                helper = nums[i] + nums[i + 1]
                 skip_next = True
                 result *= helper
                 continue
-                
+
         except IndexError:
             if i == len(nums) - 1:
                 if not skip_previous:
-                    helper = nums[i] + nums[i-1]
-                    result = result // nums[i-1] * helper
+                    helper = nums[i] + nums[i - 1]
+                    result = result // nums[i - 1] * helper
                 else:
                     result += nums[i]
             continue
-        
+
         if next_num < previous_num:
             helper = nums[i] + next_num
             skip_next = True
@@ -60,7 +60,7 @@ for i in range(len(nums)):
         else:
             if not skip_previous:
                 helper = nums[i] + previous_num
-                result = result // nums[i-1] * helper
+                result = result // nums[i - 1] * helper
             else:
                 helper = nums[i] + next_num
                 skip_next = True
@@ -69,4 +69,3 @@ for i in range(len(nums)):
         result *= nums[i]
 
 print(result)
- 

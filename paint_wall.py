@@ -1,3 +1,5 @@
+# https://quera.org/problemset/251441
+# -----------------------------------
 rows = int(input())
 painted_zone = [list(map(int, input().split())) for _ in range(rows)]
 
@@ -5,7 +7,7 @@ total_perimeter = 0
 if not painted_zone:
     print(total_perimeter)
     exit(0)
-    
+
 height = 1
 previous_start, previous_end = None, None
 
@@ -16,7 +18,7 @@ for zone in painted_zone:
         end_diff = min(previous_end, zone[1])
         if end_diff - start_diff > 0:
             total_perimeter -= (end_diff - start_diff) * 2
-        
+
     previous_start, previous_end = zone
 
 print(total_perimeter)
