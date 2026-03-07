@@ -23,31 +23,31 @@ user_guesses = [input().strip() for _ in range(number_of_guesses)]
 
 # Playing Wordle Game
 for guess in user_guesses:
-    result = [""] * keyword_length
+    guess_result = [""] * keyword_length
     keyword_character_count = Counter(keyword)
     if has_guessed:
-        result = GAME_OVER_MESSAGE
+        print(GAME_OVER_MESSAGE)
     elif len(guess) != keyword_length:
-        result = INVALID_LENGTH_MESSAGE
+        print(INVALID_LENGTH_MESSAGE)
     else:
         for i, ch in enumerate(guess):
             # Correct Guess
             if ch == keyword[i]:
-                result[i] = CORRECT_GUESS_MESSAGE
+                guess_result[i] = CORRECT_GUESS_MESSAGE
                 keyword_character_count[ch] -= 1
         for i, ch in enumerate(guess):
-            if result[i] == "":
+            if guess_result[i] == "":
                 # Semi Guess (correct character, wrong position)
                 if keyword_character_count.get(ch):
-                    result[i] = SEMI_GUESS_MESSAGE
+                    guess_result[i] = SEMI_GUESS_MESSAGE
                     keyword_character_count[ch] -= 1
                 # Wrong Guess
                 else:
-                    result[i] = WRONG_GUESS_MESSAGE
+                    guess_result[i] = WRONG_GUESS_MESSAGE
 
-        result = "".join(result)
+        result_str = "".join(guess_result)
 
-    if result == CORRECT_GUESS_MESSAGE * keyword_length:
-        has_guessed = True
+        if result_str == CORRECT_GUESS_MESSAGE * keyword_length:
+            has_guessed = True
 
-    print(result)
+        print(result_str)
